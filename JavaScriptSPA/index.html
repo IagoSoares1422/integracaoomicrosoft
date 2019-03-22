@@ -7,8 +7,11 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Signin Template · Bootstrap</title>
-    
+    <title>Integração com a Microsoft</title>
+    <!-- Script JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Script JS -->
+
     <!--Scripts microsoft-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
     <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.min.js"></script>
@@ -53,23 +56,36 @@
   <body class="text-center">
   <div class="container">    
     <form class="form-signin">
-  <img  src="Imagens/imagemLogin.png" alt="" width="72" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">Faça o Login</h1>
-  <label for="inputEmail" class="sr-only">Login</label>
-  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-  <label for="inputPassword" class="sr-only">Senha</label>
-  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Lembrar senha?
-    </label>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">ENTRAR</button>
-  <button class="btn btn-lg btn-primary btn-block" id="SignIn" onclick="signIn()">Entrar com Microsoft</button>
-  <br/><br/>
-  <pre id="json"></pre>
-  <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
-</form>
+        <img  src="Imagens/imagemLogin.png" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Faça o Login</h1>
+        <label for="inputEmail" class="sr-only">Login</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Senha</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Lembrar senha?
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">ENTRAR</button>
+        
+    </form>
+
+    <h4 id="WelcomeMessage"></h4>
+    <button class="btn btn-lg btn-primary btn-block" id="SignIn" onclick="signIn()" >Entrar com Microsoft</button>
+
+    <br/><br/>
+    <pre id="json"></pre>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+
+
+<script>
+$(document).ready(function(){
+  $("#SignIn").click(function(){
+    $("form").hide();
+  });
+});
+</script>
 
 <script>
   var applicationConfig = {
